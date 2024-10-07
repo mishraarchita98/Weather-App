@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-side">
+        <div class="weather-gradient"></div>
+        <div class="date-container">
+          <h2 class="date-dayname" id="date-dayname"></h2>
+          <span class="date-day" id="date-day"></span>
+          <i class="location-icon fas fa-map-marker-alt"></i>
+          <span class="location" id="location"></span>
+        </div>
+        <div class="weather-container">
+          <img
+            id="weather-icon"
+            class="weather-icon feather"
+            src="weather.png"
+            alt="Weather Icon"
+          />
+          <h1 class="weather-temp" id="temperature"></h1>
+          <h3 class="weather-desc" id="description"></h3>
+        </div>
+      </div>
+      <div class="info-side">
+        <form id="location-form" class="location-container">
+          <input
+            type="text"
+            class="city-search"
+            placeholder="Enter City Name..."
+            id="city-search"
+            required
+          />
+          <button type="submit" class="location-button">Get Weather</button>
+        </form>
+        <div id="loading" class="hidden">
+          <div class="loader"></div>
+        </div>
+        <div id="error" class="hidden">
+          <span class="error-message">
+            <i class="fas fa-frown"></i>
+            <span>Failed to fetch weather data</span>
+          </span>
+        </div>
+        <div class="today-info" id="today-info">
+          <div>
+            <span class="title">PRECIPITATION</span
+            ><span class="value" id="precipitation">0%</span>
+          </div>
+          <div>
+            <span class="title">HUMIDITY</span
+            ><span class="value" id="humidity">34%</span>
+          </div>
+          <div>
+            <span class="title">WIND</span
+            ><span class="value" id="wind">0 km/h</span>
+          </div>
+        </div>
+        <ul class="week-list" id="week-list"></ul>
+      </div>
+    </div>
+    <script defer src="script.js"></script>
+  </body>
+</html>
