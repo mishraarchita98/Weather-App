@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
+
+:root {
+    --gradient: linear-gradient(135deg, #72f289 10%, #5151E5 100%);
+}
+
+* {
+    box-sizing: border-box;
+    line-height: 1.25em;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('background.png');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 25px;
+    box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+    background-color: hsla(216, 18%, 16%, 0.741);
+    color: #ffffff;
+    width: 90%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.weather-side {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 25px 0px 0 0;
+    background-image: url("https://images.unsplash.com/photo-1589891685391-b37508e8df4c?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);
+    transition: transform 300ms ease;
+}
+
+.weather-side:hover {
+    transform: scale(1.05);
+}
+
+.weather-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: var(--gradient);
+    border-radius: 25px 0 0 0;
+    opacity: 0.8;
+}
+
+.date-container {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+}
+
+.date-dayname {
+    margin: 0;
+}
+
+.date-day {
+    display: block;
+}
+
+.location {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.location-icon {
+    display: inline-block;
+    height: 0.8em;
+    width: auto;
+    margin-right: 5px;
+}
+
+.weather-container {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+}
+
+.weather-icon.feather {
+    height: 60px;
+    width: auto;
+}
+
+.weather-temp {
+    margin: 0;
+    font-weight: 700;
+    font-size: 4em;
+}
+
+.weather-desc {
+    margin: 0;
+}
+
+.info-side {
+    width: 100%;
+    padding: 25px;
+    border-radius: 0 0 25px 25px;
+}
+
+.location-container {
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.location-button {
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-image: var(--gradient);
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: transform 200ms ease;
+}
+
+.city-search {
+    outline: none;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.location-button:hover {
+    transform: scale(0.95);
+}
+
+.hidden {
+    display: none;
+}
+
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+.today-info {
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.today-info>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.week-list {
+    list-style-type: none;
+    margin: 0;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 15px 0;
+    box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.week-list>li {
+    flex: 1;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 200ms ease;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.week-list>li:hover {
+    transform: scale(1.1);
+    background: #fff;
+    color: #222831;
+    box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+}
+
+.week-list>li.active {
+    background: #fff;
+    color: #222831;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .weather-side {
+        width: 300px;
+        height: auto;
+        border-radius: 25px 0 0 0;
+    }
+
+    .info-side {
+        width: calc(100% - 300px);
+        height: auto;
+        border-radius: 0 25px 25px 0;
+    }
+}
